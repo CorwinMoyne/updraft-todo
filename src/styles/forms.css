@@ -1,0 +1,9 @@
+@import "./spacing.css";
+
+.inputGroup {
+  display: flex;
+}
+
+.inputGroup button {
+  margin-left: var(--spacing);
+}

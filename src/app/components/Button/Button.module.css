@@ -1,0 +1,10 @@
+@import "../../../theme.css";
+
+.button {
+  border-radius: 6px;
+}
+
+.accent {
+  background: var(--accent);
+  color: var(--foreground);
+}
