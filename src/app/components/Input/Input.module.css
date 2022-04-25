@@ -1,0 +1,12 @@
+@import "../../../theme.css";
+
+.input {
+  padding: 9px 12px;
+  height: 1.5em;
+  border: 1px solid var(--grey);
+  border-radius: 6px;
+}
+
+.input:hover {
+  border: 1px solid var(--black);
+}
