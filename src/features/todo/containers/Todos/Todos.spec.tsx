@@ -1,37 +1,85 @@
+import userEvent from "@testing-library/user-event";
+import { UserEvent } from "@testing-library/user-event/dist/types/setup";
 import React from "react";
-import { fireEvent, render, screen, waitFor } from "../../../../testUtils";
+import { store } from "../../../../app/store";
+import { cleanup, render, screen, waitFor } from "../../../../testUtils";
+import { TodoFilters } from "../../enums/todoFilters";
+import { resetTodoSlice } from "../../todoSlice";
 import Todos from "./Todos";
 
-function addTodo(inputText: string) {
-  const input = screen.getByLabelText("description");
-  fireEvent.change(input, { target: { value: inputText } });
-  fireEvent.click(screen.getByText("Create"));
-}
+let user: UserEvent;
+
+beforeEach(() => {
+  store.dispatch(resetTodoSlice());
+  render(<Todos />);
+  user = userEvent.setup();
+});
+
+afterEach(() => {
+  cleanup();
+});
 
 test("should display a todo", async () => {
-  render(<Todos />);
-  const inputText = "My first todo";
-  addTodo(inputText);
+  await user.type(screen.getByLabelText("description"), "Todo 1");
+  await user.click(screen.getByText("Create"));
 
   await waitFor(() => {
-    const todo = screen.getByText(inputText);
-    expect(todo).toBeInTheDocument();
+    expect(screen.queryByText("Todo 1")).toBeInTheDocument();
   });
 });
 
 test("should change the item to done", async () => {
-  render(<Todos />);
-  const inputText = "My first todo";
-  addTodo(inputText);
-  let todo: any;
+  await user.type(screen.getByLabelText("description"), "Todo 1");
+  await user.click(screen.getByText("Create"));
 
-  await waitFor(() => {
-    todo = screen.getByText(inputText);
-    fireEvent.click(todo);
+  await waitFor(async () => {
+    await user.click(screen.getByTestId("todo-0"));
   });
 
   await waitFor(() => {
     const description = screen.getByTestId("todo-0");
     expect(description).toHaveClass("active");
+  });
+});
+
+test("should filter by complete items", async () => {
+  await user.type(screen.getByLabelText("description"), "Todo 1");
+  await user.click(screen.getByText("Create"));
+
+  await new Promise((r) => setTimeout(r, 1000));
+
+  await user.type(screen.getByLabelText("description"), "Todo 2");
+  await user.click(screen.getByText("Create"));
+
+  await user.click(screen.getByTestId("todo-0"));
+
+  await new Promise((r) => setTimeout(r, 1000));
+
+  await user.click(screen.getByText(TodoFilters.Complete));
+
+  await waitFor(() => {
+    expect(screen.getByText("Todo 1")).toBeInTheDocument();
+    expect(screen.queryByText("Todo 2")).toBeNull();
+  });
+});
+
+test("should filter by incomplete items", async () => {
+  await user.type(screen.getByLabelText("description"), "Todo 1");
+  await user.click(screen.getByText("Create"));
+
+  await new Promise((r) => setTimeout(r, 1000));
+
+  await user.type(screen.getByLabelText("description"), "Todo 2");
+  await user.click(screen.getByText("Create"));
+
+  await user.click(screen.getByTestId("todo-0"));
+
+  await new Promise((r) => setTimeout(r, 1000));
+
+  await user.click(screen.getByText(TodoFilters.Incomplete));
+
+  await waitFor(() => {
+    expect(screen.queryByText("Todo 1")).toBeNull();
+    expect(screen.getByText("Todo 2")).toBeInTheDocument();
   });
 });

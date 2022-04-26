@@ -12,7 +12,7 @@ interface Props {
 
 const Todo: React.FunctionComponent<Props> = (props) => {
   return (
-    <div
+    <button
       data-testid={props.testId}
       className={`${styles.todo} ${props.todo.isDone && styles.active}`}
       onClick={() => props.handleToggle(props.todo.id)}
@@ -21,7 +21,7 @@ const Todo: React.FunctionComponent<Props> = (props) => {
         <FontAwesomeIcon icon={props.todo.isDone ? faSquareCheck : faSquare} />
       </div>
       <div>{props.todo.description}</div>
-    </div>
+    </button>
   );
 };
 

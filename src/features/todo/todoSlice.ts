@@ -24,17 +24,24 @@ export const todoSlice = createSlice({
       }
     },
     toggleTodo: (state, action) => {
-      console.log(action);
       const foundTodo = state.todos.find((todo) => todo.id === action.payload);
       if (foundTodo) {
         foundTodo.isDone = !foundTodo.isDone;
       }
     },
+    setFilter: (state, action) => {
+      state.filter = action.payload;
+    },
+    resetTodoSlice: () => {
+      return initialState;
+    },
   },
 });
 
-export const { addTodo, toggleTodo } = todoSlice.actions;
+export const { addTodo, toggleTodo, setFilter, resetTodoSlice } =
+  todoSlice.actions;
 
 export const selectTodos = (state: RootState) => state.todos.todos;
+export const selectFilter = (state: RootState) => state.todos.filter;
 
 export default todoSlice.reducer;

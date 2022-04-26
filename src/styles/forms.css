@@ -1,4 +1,4 @@
-@import "./spacing.css";
+@import "./variables.css";
 @import "../theme.css";
 
 .inputGroup {
@@ -12,7 +12,7 @@
 .error {
   background: var(--error);
   padding: 10px;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   position: relative;
   display: inline-block;
   box-shadow: 1px 1px 1px #aaaaaa;
