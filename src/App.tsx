@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import Todos from "./features/todo/containers/Todos/Todos";
 
 function App() {
