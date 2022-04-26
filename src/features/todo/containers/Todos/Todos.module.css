@@ -1,8 +1,8 @@
-.todos {
-  margin-top: 2em;
-}
-
 .filterContainer {
   display: flex;
   justify-content: center;
+}
+
+.inputContainer {
+  margin: 2em 0 0 2em;
 }

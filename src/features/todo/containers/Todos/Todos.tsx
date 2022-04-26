@@ -52,12 +52,14 @@ const Todos: React.FunctionComponent<Props> = (props) => {
   };
 
   return (
-    <div className={styles.todos}>
+    <div>
       <div className={styles.filterContainer}>
         <ButtonFilters filter={filter} handleFilter={handleFilter} />
       </div>
 
-      <TodoForm handleSubmit={handleSubmit} />
+      <div className={styles.inputContainer}>
+        <TodoForm handleSubmit={handleSubmit} />
+      </div>
 
       {todos.map((todo, index) => (
         <Todo
