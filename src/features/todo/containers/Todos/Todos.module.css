@@ -1,7 +1,1 @@
-.inputGroup {
-  composes: inputGroup from "../../../../styles/forms.css";
-}
 
-.error {
-  composes: error from "../../../../styles/forms.css";
-}
