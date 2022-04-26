@@ -37,8 +37,8 @@ test("should change the item to done", async () => {
   });
 
   await waitFor(() => {
-    const description = screen.getByTestId("todo-0");
-    expect(description).toHaveClass("active");
+    const svg = screen.getByTestId("todo-0").querySelector("svg");
+    expect(svg).toHaveStyle("color: ##ee544e");
   });
 });
 
