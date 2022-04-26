@@ -52,24 +52,26 @@ const Todos: React.FunctionComponent<Props> = (props) => {
   };
 
   return (
-    <div>
-      <div className={styles.filterContainer}>
-        <ButtonFilters filter={filter} handleFilter={handleFilter} />
-      </div>
+    <div className={styles.container}>
+      <div className={styles.contentContainer}>
+        <div className={styles.container}>
+          <ButtonFilters filter={filter} handleFilter={handleFilter} />
+        </div>
 
-      <div className={styles.inputContainer}>
-        <TodoForm handleSubmit={handleSubmit} />
-      </div>
+        <div className={styles.inputContainer}>
+          <TodoForm handleSubmit={handleSubmit} />
+        </div>
 
-      <div className={styles.todosContainer}>
-        {todos.map((todo, index) => (
-          <Todo
-            testId={`todo-${index}`}
-            key={todo.id}
-            todo={todo}
-            handleToggle={handleToggle}
-          />
-        ))}
+        <div className={styles.todosContainer}>
+          {todos.map((todo, index) => (
+            <Todo
+              testId={`todo-${index}`}
+              key={todo.id}
+              todo={todo}
+              handleToggle={handleToggle}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
