@@ -1,7 +1,7 @@
 import * as React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
-import ButtonFilters from "../../components/ButtonFilters";
+import ButtonFilters from "../../components/ButtonFilters/ButtonFilters";
 import Todo from "../../components/Todo/Todo";
 import TodoForm from "../../components/TodoForm/TodoForm";
 import { TodoFilters } from "../../enums/todoFilters";

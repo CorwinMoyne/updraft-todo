@@ -1,7 +1,7 @@
 import * as React from "react";
-import Button from "../../../app/components/Button/Button";
-import ButtonGroup from "../../../app/components/ButtonGroup/ButtonGroup";
-import { TodoFilters } from "../enums/todoFilters";
+import Button from "../../../../app/components/Button/Button";
+import ButtonGroup from "../../../../app/components/ButtonGroup/ButtonGroup";
+import { TodoFilters } from "../../enums/todoFilters";
 
 interface Props {
   filter: TodoFilters;
