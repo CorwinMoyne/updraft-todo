@@ -1,5 +1,10 @@
 @import "../../../theme.css";
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 .input {
   padding: 9px 12px;
   height: 1.5em;

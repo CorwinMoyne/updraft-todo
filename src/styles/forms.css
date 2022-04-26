@@ -1,4 +1,5 @@
 @import "./spacing.css";
+@import "../theme.css";
 
 .inputGroup {
   display: flex;
@@ -6,4 +7,26 @@
 
 .inputGroup button {
   margin-left: var(--spacing);
+}
+
+.error {
+  background: var(--error);
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin-top: 10px;
+  color: var(--foreground);
+}
+
+.error::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--error);
+  position: absolute;
+  top: -10px;
 }
