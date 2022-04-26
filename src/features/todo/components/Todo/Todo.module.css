@@ -1,0 +1,19 @@
+@import "../../../../styles/spacing.css";
+@import "../../../../theme.css";
+
+.todo {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing);
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo > div {
+  margin-right: var(--spacing);
+}
+
+.active {
+  color: var(--accent);
+  text-decoration: line-through;
+}
