@@ -1,8 +1,7 @@
 import * as React from "react";
 import { v4 as uuidv4 } from "uuid";
-import Button from "../../../../app/components/Button/Button";
-import ButtonGroup from "../../../../app/components/ButtonGroup/ButtonGroup";
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
+import ButtonFilters from "../../components/ButtonFilters";
 import Todo from "../../components/Todo/Todo";
 import TodoForm from "../../components/TodoForm/TodoForm";
 import { TodoFilters } from "../../enums/todoFilters";
@@ -29,8 +28,6 @@ const Todos: React.FunctionComponent<Props> = (props) => {
     return todo;
   });
 
-  console.log("todos", todos);
-
   const dispatch = useAppDispatch();
 
   const handleSubmit = (formValues: { description: string }) => {
@@ -55,26 +52,7 @@ const Todos: React.FunctionComponent<Props> = (props) => {
 
   return (
     <div>
-      <ButtonGroup>
-        <Button
-          onclick={() => handleFilter(TodoFilters.All)}
-          variant={filter === TodoFilters.All ? "accent" : "default"}
-        >
-          {TodoFilters.All}
-        </Button>
-        <Button
-          onclick={() => handleFilter(TodoFilters.Incomplete)}
-          variant={filter === TodoFilters.Incomplete ? "accent" : "default"}
-        >
-          {TodoFilters.Incomplete}
-        </Button>
-        <Button
-          onclick={() => handleFilter(TodoFilters.Complete)}
-          variant={filter === TodoFilters.Complete ? "accent" : "default"}
-        >
-          {TodoFilters.Complete}
-        </Button>
-      </ButtonGroup>
+      <ButtonFilters filter={filter} handleFilter={handleFilter} />
 
       <TodoForm handleSubmit={handleSubmit} />
 
