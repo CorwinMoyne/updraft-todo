@@ -14,13 +14,23 @@ const Todo: React.FunctionComponent<Props> = (props) => {
   return (
     <button
       data-testid={props.testId}
-      className={`${styles.todo} ${props.todo.isDone && styles.active}`}
+      className={styles.todo}
       onClick={() => props.handleToggle(props.todo.id)}
     >
       <div>
-        <FontAwesomeIcon icon={props.todo.isDone ? faSquareCheck : faSquare} />
+        <FontAwesomeIcon
+          className={`${styles.icon} ${props.todo.isDone ? styles.active : ""}`}
+          icon={props.todo.isDone ? faSquareCheck : faSquare}
+          size="2x"
+        />
       </div>
-      <div>{props.todo.description}</div>
+      <div
+        className={`${styles.description} ${
+          props.todo.isDone ? styles.active : ""
+        }`}
+      >
+        {props.todo.description}
+      </div>
     </button>
   );
 };

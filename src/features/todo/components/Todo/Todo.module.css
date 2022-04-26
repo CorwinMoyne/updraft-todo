@@ -14,10 +14,23 @@
 }
 
 .todo > div {
-  margin-right: var(--spacing);
+  margin-right: calc(var(--spacing) * 2);
 }
 
-.active {
+.icon {
+  color: var(--grey);
+}
+
+.icon.active {
   color: var(--accent);
+}
+
+.description {
+  color: var(--grey);
+  font-size: 1.6em;
+}
+
+.description.active {
   text-decoration: line-through;
+  text-decoration-color: var(--accent);
 }

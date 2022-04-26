@@ -61,14 +61,16 @@ const Todos: React.FunctionComponent<Props> = (props) => {
         <TodoForm handleSubmit={handleSubmit} />
       </div>
 
-      {todos.map((todo, index) => (
-        <Todo
-          testId={`todo-${index}`}
-          key={todo.id}
-          todo={todo}
-          handleToggle={handleToggle}
-        />
-      ))}
+      <div className={styles.todosContainer}>
+        {todos.map((todo, index) => (
+          <Todo
+            testId={`todo-${index}`}
+            key={todo.id}
+            todo={todo}
+            handleToggle={handleToggle}
+          />
+        ))}
+      </div>
     </div>
   );
 };
