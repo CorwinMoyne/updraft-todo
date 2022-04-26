@@ -13,6 +13,7 @@ import {
   setFilter,
   toggleTodo,
 } from "../../todoSlice";
+import styles from "./Todos.module.css";
 
 interface Props {}
 
@@ -51,8 +52,10 @@ const Todos: React.FunctionComponent<Props> = (props) => {
   };
 
   return (
-    <div>
-      <ButtonFilters filter={filter} handleFilter={handleFilter} />
+    <div className={styles.todos}>
+      <div className={styles.filterContainer}>
+        <ButtonFilters filter={filter} handleFilter={handleFilter} />
+      </div>
 
       <TodoForm handleSubmit={handleSubmit} />
 
