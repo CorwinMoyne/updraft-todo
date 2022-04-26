@@ -32,3 +32,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run deploy`
 
 Deploy the app to gh-pages
+
+## To view the app visit
+
+https://corwinmoyne.github.io/updraft-todo/
