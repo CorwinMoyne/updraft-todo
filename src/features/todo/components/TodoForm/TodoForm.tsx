@@ -43,8 +43,6 @@ const TodoForm: React.FunctionComponent<Props> = (props) => {
               name="description"
               value={values.description}
               onChange={handleChange}
-              errors={errors}
-              touched={touched}
             />
             <Button variant="accent" disabled={isSubmitting}>
               Create

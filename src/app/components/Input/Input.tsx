@@ -7,8 +7,6 @@ interface Props {
   type?: "text"; // Add other types as required - number, password etc
   name?: string;
   value: string;
-  errors?: any;
-  touched?: any;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
