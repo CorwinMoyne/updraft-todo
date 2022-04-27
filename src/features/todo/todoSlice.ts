@@ -18,7 +18,12 @@ export const todoSlice = createSlice({
   initialState: initialState,
   reducers: {
     addTodo: (state, action) => {
-      if (!state.todos.includes(action.payload)) {
+      const foundTodo = state.todos.find(
+        (todo) =>
+          todo.description.toLocaleLowerCase() ===
+          action.payload.description.toLowerCase()
+      );
+      if (!foundTodo) {
         const todo = action.payload;
         state.todos.push(todo);
       }
