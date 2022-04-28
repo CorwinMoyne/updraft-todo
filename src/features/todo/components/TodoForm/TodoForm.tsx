@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import * as React from "react";
-import Button from "../../../../app/components/Button/Button";
-import Input from "../../../../app/components/Input/Input";
+import Button from "../../../../shared/components/Button/Button";
+import Input from "../../../../shared/components/Input/Input";
 import styles from "./TodoForm.module.css";
 
 interface Props {
