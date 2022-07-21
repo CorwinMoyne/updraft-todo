@@ -21,6 +21,9 @@ jobs:
   deploy:
     executor: executor
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "4a:99:ab:3e:ba:d9:a2:88:a5:5e:49:9f:ca:b0:ca:a0"
       - checkout
       - run: npm install
       - run: npm run deploy
