@@ -12,6 +12,12 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
+  build:
+    executor: executor
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
   deploy:
     executor: executor
     steps:
@@ -25,6 +31,7 @@ workflows:
       - deploy:
           requires:
             - test
+            - build
           filters:
             branches:
               only: main
