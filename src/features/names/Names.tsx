@@ -13,7 +13,7 @@ function renderNameAndAge(person: Person) {
   return `${person.name} is ${person.age} years old`;
 }
 
-const people: Person[] = [
+export const people: Person[] = [
   { id: "0", name: "Peter", age: 20 },
   { id: "1", name: "James", age: 25 },
 ];
