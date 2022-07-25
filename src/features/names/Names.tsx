@@ -17,6 +17,7 @@ export const people: Person[] = [
   { id: "0", name: "Peter", age: 20 },
   { id: "1", name: "James", age: 25 },
   { id: "2", name: "Walt", age: 30 },
+  { id: "3", name: "Dan", age: 35 },
 ];
 
 const Names: React.FunctionComponent<Props> = (props) => {
