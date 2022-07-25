@@ -16,6 +16,7 @@ function renderNameAndAge(person: Person) {
 export const people: Person[] = [
   { id: "0", name: "Peter", age: 20 },
   { id: "1", name: "James", age: 25 },
+  { id: "2", name: "Walt", age: 30 },
 ];
 
 const Names: React.FunctionComponent<Props> = (props) => {
