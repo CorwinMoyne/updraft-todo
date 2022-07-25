@@ -10,7 +10,7 @@ interface Person {
 }
 
 function renderNameAndAge(person: Person) {
-  return `${person.name} is ${person.age} years old`;
+  return `${person.name} is ${person.age} years old.`;
 }
 
 export const people: Person[] = [
