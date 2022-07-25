@@ -17,5 +17,5 @@ test("should render the names", async () => {
 
 test("should be correctly formatted", async () => {
   const { getByText } = setupTest();
-  expect(getByText("Peter is 20 years old")).toBeInTheDocument();
+  expect(getByText("Peter is 20 years old.")).toBeInTheDocument();
 });
